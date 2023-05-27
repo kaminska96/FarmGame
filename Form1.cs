@@ -44,14 +44,10 @@ namespace FarmGame
                         animalFarm.chickenCount += Int32.Parse(amount_label.Text);
                         ch_amount_label.Text = animalFarm.chickenCount.ToString();
                         int begin = animalFarm.farmSize;
-                        animalFarm.AddAnimalToList(Int32.Parse(amount_label.Text), 0);
+                        animalFarm.AddAnimalToList(Int32.Parse(amount_label.Text), 2);
 
                         displayAnimals(begin, animalFarm.farmSize);
 
-                        if (animalFarm.GetCashRef().getMoney() < 0)
-                        {
-                            label8.ForeColor = Color.Red;
-                        }
                         label8.Text = animalFarm.GetCashRef().cashUpdate();
                     }
                     else if (sheep_radio_button.Checked == true)
@@ -60,14 +56,10 @@ namespace FarmGame
                         animalFarm.sheepCount += Int32.Parse(amount_label.Text);
                         sh_amount_label.Text = animalFarm.sheepCount.ToString();
                         int begin = animalFarm.farmSize;
-                        animalFarm.AddAnimalToList(Int32.Parse(amount_label.Text), 5);
+                        animalFarm.AddAnimalToList(Int32.Parse(amount_label.Text), 1);
 
                         displayAnimals(begin, animalFarm.farmSize);
 
-                        if (animalFarm.GetCashRef().getMoney() < 0)
-                        {
-                            label8.ForeColor = Color.Red;
-                        }
                         label8.Text = animalFarm.GetCashRef().cashUpdate();
                     }
                     else if (cow_radio_button.Checked == true)
@@ -76,14 +68,10 @@ namespace FarmGame
                         animalFarm.cowCount += Int32.Parse(amount_label.Text);
                         c_amount_label.Text = animalFarm.cowCount.ToString();
                         int begin = animalFarm.farmSize;
-                        animalFarm.AddAnimalToList(Int32.Parse(amount_label.Text), 3);
+                        animalFarm.AddAnimalToList(Int32.Parse(amount_label.Text), 0);
 
                         displayAnimals(begin, animalFarm.farmSize);
 
-                        if (animalFarm.GetCashRef().getMoney() < 0)
-                        {
-                            label8.ForeColor = Color.Red;
-                        }
                         label8.Text = animalFarm.GetCashRef().cashUpdate();
                     }
                 }
@@ -344,10 +332,6 @@ namespace FarmGame
             if (prevIndex >= 0)
             {
                 animalFarm.GetCashRef() -= 10;
-                if (animalFarm.GetCashRef().getMoney() < 0)
-                {
-                    label8.ForeColor = Color.Red;
-                }
                 label8.Text = animalFarm.GetCashRef().cashUpdate();
                 animalFarm.Animals[prevIndex].healAnimal();
             }
@@ -357,10 +341,6 @@ namespace FarmGame
             if (prevIndex >= 0)
             {
                 animalFarm.GetCashRef() -= 10;
-                if (animalFarm.GetCashRef().getMoney() < 0)
-                {
-                    label8.ForeColor = Color.Red;
-                }
                 label8.Text = animalFarm.GetCashRef().cashUpdate();
                 animalFarm.Animals[prevIndex].feedAnimal();
             }
@@ -373,29 +353,17 @@ namespace FarmGame
                 {
                     case 0:
                         animalFarm.cowCount--; c_amount_label.Text = animalFarm.cowCount.ToString();
-                        animalFarm.GetCashRef() += Cow.sellCow * animalFarm.Animals[prevIndex].age.getDays();
-                        if (animalFarm.GetCashRef().getMoney() > 0)
-                        {
-                            label8.ForeColor = Color.ForestGreen;
-                        }
+                        animalFarm.GetCashRef() += Cow.sellCow;
                         label8.Text = animalFarm.GetCashRef().cashUpdate();
                         break;
                     case 1:
                         animalFarm.sheepCount--; sh_amount_label.Text = animalFarm.sheepCount.ToString();
-                        animalFarm.GetCashRef() += Sheep.sellSheep * animalFarm.Animals[prevIndex].age.getDays();
-                        if (animalFarm.GetCashRef().getMoney() > 0)
-                        {
-                            label8.ForeColor = Color.ForestGreen;
-                        }
+                        animalFarm.GetCashRef() += Sheep.sellSheep;
                         label8.Text = animalFarm.GetCashRef().cashUpdate();
                         break;
                     case 2:
                         animalFarm.chickenCount--; ch_amount_label.Text = animalFarm.chickenCount.ToString();
-                        animalFarm.GetCashRef() += Chicken.sellChicken * animalFarm.Animals[prevIndex].age.getDays();
-                        if (animalFarm.GetCashRef().getMoney() > 0)
-                        {
-                            label8.ForeColor = Color.ForestGreen;
-                        }
+                        animalFarm.GetCashRef() += Chicken.sellChicken;
                         label8.Text = animalFarm.GetCashRef().cashUpdate();
                         break;
                     default: break;
@@ -416,10 +384,6 @@ namespace FarmGame
                 if (animalFarm.Animals[prevIndex].doesLactate())
                 {
                     animalFarm.GetCashRef() += 40;
-                    if (animalFarm.GetCashRef().getMoney() > 0)
-                    {
-                        label8.ForeColor = Color.ForestGreen;
-                    }
                     label8.Text = animalFarm.GetCashRef().cashUpdate();
                     Cow c = (Cow)animalFarm.Animals[prevIndex];
                     c.updateLactate(false);
@@ -436,10 +400,6 @@ namespace FarmGame
                 if (animalFarm.Animals[prevIndex].doesWool())
                 {
                     animalFarm.GetCashRef() += 10;
-                    if (animalFarm.GetCashRef().getMoney() > 0)
-                    {
-                        label8.ForeColor = Color.ForestGreen;
-                    }
                     label8.Text = animalFarm.GetCashRef().cashUpdate();
                     Sheep s = (Sheep)animalFarm.Animals[prevIndex];
                     s.updateWool(false);
@@ -461,10 +421,6 @@ namespace FarmGame
                 if (animalFarm.Animals[prevIndex].doesEgg())
                 {
                     animalFarm.GetCashRef() += 10;
-                    if (animalFarm.GetCashRef().getMoney() > 0)
-                    {
-                        label8.ForeColor = Color.ForestGreen;
-                    }
                     label8.Text = animalFarm.GetCashRef().cashUpdate();
                     Chicken c = (Chicken)animalFarm.Animals[prevIndex];
                     c.updateEgg(false);

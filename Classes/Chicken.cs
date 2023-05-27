@@ -51,7 +51,7 @@ namespace FarmGame
         }
         public override bool isInside(int X, int Y)
         {
-            return Math.Abs(X - coordinates.X) <= 32 && Math.Abs(Y - coordinates.Y) <= 32;
+            return Math.Abs(X - coordinates.X) <= 100 && Math.Abs(Y - coordinates.Y) <= 100;
         }
         public override void createDirection()
         {
@@ -83,7 +83,7 @@ namespace FarmGame
             p.Image = global::FarmGame.Properties.Resources.chicken;
             p.InitialImage = global::FarmGame.Properties.Resources.chicken;
             p.Location = new System.Drawing.Point((int)getX(), (int)getY());
-            p.Size = new System.Drawing.Size(32, 32);
+            p.Size = new System.Drawing.Size(100, 100);
             p.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             p.TabIndex = 13;
             p.TabStop = false;

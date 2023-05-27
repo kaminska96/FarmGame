@@ -217,7 +217,7 @@
             this.buy_cow.Name = "buy_cow";
             this.buy_cow.Size = new System.Drawing.Size(61, 25);
             this.buy_cow.TabIndex = 11;
-            this.buy_cow.Text = "250 $";
+            this.buy_cow.Text = "220 $";
             // 
             // label1
             // 
@@ -227,7 +227,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(61, 25);
             this.label1.TabIndex = 12;
-            this.label1.Text = "250 $";
+            this.label1.Text = "175 $";
             // 
             // label3
             // 
@@ -235,9 +235,9 @@
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label3.Location = new System.Drawing.Point(1405, 194);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(61, 25);
+            this.label3.Size = new System.Drawing.Size(50, 25);
             this.label3.TabIndex = 13;
-            this.label3.Text = "250 $";
+            this.label3.Text = "30 $";
             // 
             // choose_amount
             // 
