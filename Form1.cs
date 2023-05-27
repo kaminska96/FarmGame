@@ -16,7 +16,6 @@ namespace FarmGame
         private Farm animalFarm = new Farm();
         public List<PictureBox> animalImages = new List<PictureBox>();
 
-        //Methods
         public Form1()
         {
 
@@ -28,7 +27,6 @@ namespace FarmGame
             label8.Text = animalFarm.GetCashRef().cashUpdate();
 
             this.day_count_label.Parent = pictureBox1;
-            //this.day_count_label.Parent = pictureBox1;
         }
         private void buyButtonClick(object sender, EventArgs e)
         {
@@ -134,27 +132,6 @@ namespace FarmGame
                 animalImages[i].Parent = this.pictureBox1;
             }
         }
-        //private void search_icon_Click(object sender, EventArgs e)
-        //{
-        //    int id = -1;
-        //    try
-        //    {
-        //        id = Int32.Parse(searchBox.Text);
-        //        if (id >= 0 && id < animalFarm.farmSize)
-        //        {
-        //            animalFarm.Animals[id].displayAnimalStats(id_label, type_label, age_label, hunger_bar, health_bar);
-        //            prevIndex = id;
-        //        }
-        //        else
-        //        {
-        //            searchBox.Text = "Entered ID doesnot exist";
-        //        }
-        //    }
-        //    catch
-        //    {
-        //        searchBox.Text = "Not an ID..";
-        //    }
-        //}
         private void comboBox1SelectedVal(object sender, EventArgs e)
         {
             amount_label.Text = choose_amount.SelectedIndex.ToString();
@@ -264,7 +241,6 @@ namespace FarmGame
         }
         private void timer1_Tick(object sender, EventArgs e)
         {
-            //animalFarm.GetCashRef().applyInterest();
             label8.Text = animalFarm.GetCashRef().cashUpdate();
 
             animalFarm.GetTimeRef().increaseDays(day_count_label);

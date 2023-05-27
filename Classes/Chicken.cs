@@ -62,12 +62,12 @@ namespace FarmGame
         }
         public override void updateStats()
         {
-            if (hunger - 3 <= 0 || health - 1 <= 0)
+            if (hunger - 2 <= 0 || health - 1 <= 0)
                 isAlive = false;
             else
             {
                 eggCounter++;
-                hunger -= 3;
+                hunger -= 2;
                 health -= 1;
                 if (eggCounter == 5)
                 {
