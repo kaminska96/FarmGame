@@ -1,0 +1,11 @@
+D:\projects\FarmGame\bin\Debug\FarmGame.exe.config
+D:\projects\FarmGame\bin\Debug\FarmGame.exe
+D:\projects\FarmGame\bin\Debug\FarmGame.pdb
+D:\projects\FarmGame\obj\Debug\FarmGame.csproj.AssemblyReference.cache
+D:\projects\FarmGame\obj\Debug\FarmGame.csproj.SuggestedBindingRedirects.cache
+D:\projects\FarmGame\obj\Debug\FarmGame.Form1.resources
+D:\projects\FarmGame\obj\Debug\FarmGame.Properties.Resources.resources
+D:\projects\FarmGame\obj\Debug\FarmGame.csproj.GenerateResource.cache
+D:\projects\FarmGame\obj\Debug\FarmGame.csproj.CoreCompileInputs.cache
+D:\projects\FarmGame\obj\Debug\FarmGame.exe
+D:\projects\FarmGame\obj\Debug\FarmGame.pdb
