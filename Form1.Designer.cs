@@ -246,10 +246,23 @@
             // 
             this.choose_amount.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.choose_amount.FormattingEnabled = true;
+            this.choose_amount.Items.AddRange(new object[] {
+            "Select amount",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10"});
             this.choose_amount.Location = new System.Drawing.Point(1335, 280);
             this.choose_amount.Name = "choose_amount";
             this.choose_amount.Size = new System.Drawing.Size(136, 28);
             this.choose_amount.TabIndex = 14;
+            this.choose_amount.Text = "Select amount";
             this.choose_amount.SelectedValueChanged += new System.EventHandler(this.comboBox1SelectedVal);
             this.choose_amount.TextChanged += new System.EventHandler(this.comboBox1Text);
             // 
