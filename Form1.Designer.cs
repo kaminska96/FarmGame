@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.buy_label = new System.Windows.Forms.Label();
@@ -71,6 +72,9 @@
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
+            this.amount_label = new System.Windows.Forms.Label();
+            this.bal_label = new System.Windows.Forms.Label();
+            this.pause_button = new System.Windows.Forms.PictureBox();
             this.day_count_label = new System.Windows.Forms.Label();
             this.sell_button = new System.Windows.Forms.PictureBox();
             this.selling_button = new System.Windows.Forms.PictureBox();
@@ -79,13 +83,12 @@
             this.feed_button = new System.Windows.Forms.PictureBox();
             this.milk_button = new System.Windows.Forms.PictureBox();
             this.egg_button = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.amount_label = new System.Windows.Forms.Label();
             this.days_label = new System.Windows.Forms.Label();
-            this.bal_label = new System.Windows.Forms.Label();
+            this.background = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pause_button)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sell_button)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.selling_button)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.wool_button)).BeginInit();
@@ -93,7 +96,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.feed_button)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.milk_button)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.egg_button)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.background)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -531,6 +534,40 @@
             this.label19.TabIndex = 42;
             this.label19.Text = "chickens";
             // 
+            // amount_label
+            // 
+            this.amount_label.AutoSize = true;
+            this.amount_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.amount_label.Location = new System.Drawing.Point(1100, 407);
+            this.amount_label.Name = "amount_label";
+            this.amount_label.Size = new System.Drawing.Size(19, 25);
+            this.amount_label.TabIndex = 43;
+            this.amount_label.Text = "-";
+            // 
+            // bal_label
+            // 
+            this.bal_label.AutoSize = true;
+            this.bal_label.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(181)))), ((int)(((byte)(96)))));
+            this.bal_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.bal_label.Location = new System.Drawing.Point(292, 9);
+            this.bal_label.Name = "bal_label";
+            this.bal_label.Size = new System.Drawing.Size(37, 39);
+            this.bal_label.TabIndex = 45;
+            this.bal_label.Text = "$";
+            // 
+            // pause_button
+            // 
+            this.pause_button.BackgroundImage = global::FarmGame.Properties.Resources.background;
+            this.pause_button.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pause_button.Image = global::FarmGame.Properties.Resources.pause1;
+            this.pause_button.Location = new System.Drawing.Point(22, 21);
+            this.pause_button.Name = "pause_button";
+            this.pause_button.Size = new System.Drawing.Size(43, 41);
+            this.pause_button.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pause_button.TabIndex = 45;
+            this.pause_button.TabStop = false;
+            this.pause_button.Click += new System.EventHandler(this.pause_button_Click);
+            // 
             // day_count_label
             // 
             this.day_count_label.AutoSize = true;
@@ -627,28 +664,6 @@
             this.egg_button.TabStop = false;
             this.egg_button.Click += new System.EventHandler(this.egg_button_Click);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(183)))), ((int)(((byte)(252)))), ((int)(((byte)(154)))));
-            this.pictureBox1.BackgroundImage = global::FarmGame.Properties.Resources.background;
-            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Cross;
-            this.pictureBox1.Location = new System.Drawing.Point(-9, -4);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1090, 721);
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
-            // 
-            // amount_label
-            // 
-            this.amount_label.AutoSize = true;
-            this.amount_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.amount_label.Location = new System.Drawing.Point(1100, 407);
-            this.amount_label.Name = "amount_label";
-            this.amount_label.Size = new System.Drawing.Size(19, 25);
-            this.amount_label.TabIndex = 43;
-            this.amount_label.Text = "-";
-            // 
             // days_label
             // 
             this.days_label.AutoSize = true;
@@ -663,16 +678,17 @@
             this.days_label.TabIndex = 44;
             this.days_label.Text = "Day";
             // 
-            // bal_label
+            // background
             // 
-            this.bal_label.AutoSize = true;
-            this.bal_label.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(181)))), ((int)(((byte)(96)))));
-            this.bal_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.bal_label.Location = new System.Drawing.Point(292, 9);
-            this.bal_label.Name = "bal_label";
-            this.bal_label.Size = new System.Drawing.Size(37, 39);
-            this.bal_label.TabIndex = 45;
-            this.bal_label.Text = "$";
+            this.background.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(183)))), ((int)(((byte)(252)))), ((int)(((byte)(154)))));
+            this.background.BackgroundImage = global::FarmGame.Properties.Resources.background;
+            this.background.Cursor = System.Windows.Forms.Cursors.Cross;
+            this.background.Location = new System.Drawing.Point(-9, -4);
+            this.background.Margin = new System.Windows.Forms.Padding(4);
+            this.background.Name = "background";
+            this.background.Size = new System.Drawing.Size(1090, 721);
+            this.background.TabIndex = 1;
+            this.background.TabStop = false;
             // 
             // Form1
             // 
@@ -680,6 +696,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(194)))), ((int)(((byte)(105)))));
             this.ClientSize = new System.Drawing.Size(1496, 708);
+            this.Controls.Add(this.pause_button);
             this.Controls.Add(this.day_count_label);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
@@ -714,18 +731,20 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.days_label);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.background);
             this.Cursor = System.Windows.Forms.Cursors.Default;
             this.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "Farm";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pause_button)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sell_button)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.selling_button)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.wool_button)).EndInit();
@@ -733,7 +752,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.feed_button)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.milk_button)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.egg_button)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.background)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -743,7 +762,7 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox wool_button;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox background;
         private System.Windows.Forms.PictureBox selling_button;
         private System.Windows.Forms.PictureBox health_button;
         private System.Windows.Forms.PictureBox feed_button;
@@ -795,6 +814,7 @@
         private System.Windows.Forms.Label amount_label;
         private System.Windows.Forms.Label days_label;
         private System.Windows.Forms.Label bal_label;
+        private System.Windows.Forms.PictureBox pause_button;
     }
 }
 

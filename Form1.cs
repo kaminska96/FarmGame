@@ -29,7 +29,7 @@ namespace FarmGame
             moveAnimal.Start();
             label8.Text = animalFarm.GetCashRef().cashUpdate();
 
-            this.day_count_label.Parent = pictureBox1;
+            this.day_count_label.Parent = background;
         }
         private void buyButtonClick(object sender, EventArgs e)
         {
@@ -133,7 +133,7 @@ namespace FarmGame
                 animalImages[i].MouseUp += new MouseEventHandler(this.visualMouseUp);
                 this.Controls.Add(animalImages[i]);
                 ((System.ComponentModel.ISupportInitialize)(animalImages[i])).EndInit();
-                animalImages[i].Parent = this.pictureBox1;
+                animalImages[i].Parent = this.background;
             }
         }
         private void comboBox1SelectedVal(object sender, EventArgs e)
@@ -399,10 +399,22 @@ namespace FarmGame
                     swoosh.Play();
             }
         }
-
-        private void label1_Click(object sender, EventArgs e)
+        int flag = 1;
+        private void pause_button_Click(object sender, EventArgs e)
         {
-
+            flag *= -1;
+            if(flag == -1)
+            {
+                pause_button.Image = global::FarmGame.Properties.Resources.play;
+                timer1.Stop();
+                moveAnimal.Stop();
+            }
+            else
+            {
+                pause_button.Image = global::FarmGame.Properties.Resources.pause1;
+                timer1.Start();
+                moveAnimal.Start();
+            }
         }
 
         private void egg_button_Click(object sender, EventArgs e)
