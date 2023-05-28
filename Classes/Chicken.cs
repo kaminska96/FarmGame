@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -53,6 +54,11 @@ namespace FarmGame
         {
             return Math.Abs(X - coordinates.X) <= 100 && Math.Abs(Y - coordinates.Y) <= 100;
         }
+        public override void sound()
+        {
+            SoundPlayer sound = new SoundPlayer(Properties.Resources.chicken1);
+            sound.Play();
+        }
         public override void createDirection()
         {
             direction.X = rand.Next(0, 200) - 100;
@@ -66,6 +72,10 @@ namespace FarmGame
                 isAlive = false;
             else
             {
+                if(hunger <= 100 || health <= 100)
+                {
+                    sound();
+                }
                 eggCounter++;
                 hunger -= 2;
                 health -= 1;

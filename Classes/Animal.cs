@@ -35,6 +35,7 @@ namespace FarmGame
         public virtual bool doesEgg() { return false; }
         public virtual bool doesWool() { return false; }
         public virtual bool isInside(int X, int Y) { return true; }
+        public virtual void sound() { }
         public void feedAnimal()
         {
             if (hunger + 40 <= 200)

@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -15,7 +16,9 @@ namespace FarmGame
         private int counter, moveTickCount, curIndex, prevIndex;
         private Farm animalFarm = new Farm();
         public List<PictureBox> animalImages = new List<PictureBox>();
-
+        private SoundPlayer buy = new SoundPlayer(Properties.Resources.buy);
+        private SoundPlayer sell1 = new SoundPlayer(Properties.Resources.sell1);
+        private SoundPlayer swoosh = new SoundPlayer(Properties.Resources.swoosh);
         public Form1()
         {
 
@@ -36,6 +39,7 @@ namespace FarmGame
                 price = Int32.Parse(cost_label.Text);
                 if (price > 0 && animalFarm.GetCashRef().getMoney() - price >= 0)
                 {
+                    buy.Play();
                     if (chicken_radio_button.Checked == true)
                     {
                         animalFarm.GetCashRef() -= price;
@@ -307,24 +311,31 @@ namespace FarmGame
         {
             if (prevIndex >= 0)
             {
-                animalFarm.GetCashRef() -= 10;
+                buy.Play();
+                animalFarm.GetCashRef() -= 15;
                 label8.Text = animalFarm.GetCashRef().cashUpdate();
                 animalFarm.Animals[prevIndex].healAnimal();
             }
+            else
+                swoosh.Play();
         }
         private void feed_button_Click(object sender, EventArgs e)
         {
             if (prevIndex >= 0)
             {
+                buy.Play();
                 animalFarm.GetCashRef() -= 10;
                 label8.Text = animalFarm.GetCashRef().cashUpdate();
                 animalFarm.Animals[prevIndex].feedAnimal();
             }
+            else
+                swoosh.Play();
         }
         private void meat_button_Click(object sender, EventArgs e)
         {
             if (prevIndex >= 0)
             {
+                sell1.Play();
                 switch (animalFarm.Animals[prevIndex].getType())
                 {
                     case 0:
@@ -352,6 +363,8 @@ namespace FarmGame
                 animalFarm.farmSize--;
                 clearStats();
             }
+            else
+                swoosh.Play();
         }
         private void milk_button_Click(object sender, EventArgs e)
         {
@@ -359,13 +372,14 @@ namespace FarmGame
             {
                 if (animalFarm.Animals[prevIndex].doesLactate())
                 {
+                    sell1.Play();
                     animalFarm.GetCashRef() += 40;
                     label8.Text = animalFarm.GetCashRef().cashUpdate();
                     Cow c = (Cow)animalFarm.Animals[prevIndex];
                     c.updateLactate(false);
                 }
-                //else
-                //noise.Play();
+                else
+                    swoosh.Play();
             }
         }
 
@@ -375,13 +389,14 @@ namespace FarmGame
             {
                 if (animalFarm.Animals[prevIndex].doesWool())
                 {
-                    animalFarm.GetCashRef() += 10;
+                    sell1.Play();
+                    animalFarm.GetCashRef() += 30;
                     label8.Text = animalFarm.GetCashRef().cashUpdate();
                     Sheep s = (Sheep)animalFarm.Animals[prevIndex];
                     s.updateWool(false);
                 }
-                //else
-                //    noise.Play();
+                else
+                    swoosh.Play();
             }
         }
 
@@ -396,13 +411,14 @@ namespace FarmGame
             {
                 if (animalFarm.Animals[prevIndex].doesEgg())
                 {
-                    animalFarm.GetCashRef() += 10;
+                    sell1.Play();
+                    animalFarm.GetCashRef() += 15;
                     label8.Text = animalFarm.GetCashRef().cashUpdate();
                     Chicken c = (Chicken)animalFarm.Animals[prevIndex];
                     c.updateEgg(false);
                 }
-                //else
-                //    noise.Play();
+                else
+                    swoosh.Play();
             }
         }
         private void clearStats()

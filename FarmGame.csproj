@@ -118,5 +118,23 @@
   <ItemGroup>
     <None Include="Resources\chicken.gif" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\buy.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sheep.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cow.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\chicken.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sell.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\swoosh.wav" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
