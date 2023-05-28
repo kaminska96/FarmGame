@@ -79,11 +79,12 @@ namespace FarmGame
                     sound();
                 }
                 lactatingCounter++;
-                hunger -= 5;
+                hunger -= 9;
                 health -= 2;
                 if (lactatingCounter == 20)
                 {
                     updateLactate(true);
+                    sound();
                     lactatingCounter = 0;
                 }
             }

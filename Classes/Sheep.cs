@@ -75,11 +75,12 @@ namespace FarmGame
                     sound();
                 }
                 woolCounter++;
-                hunger -= 5;
+                hunger -= 8;
                 health -= 2;
                 if (woolCounter == 30)
                 {
                     updateWool(true);
+                    sound();
                     woolCounter = 0;
                 }
             }

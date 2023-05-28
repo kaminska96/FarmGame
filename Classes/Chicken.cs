@@ -77,11 +77,12 @@ namespace FarmGame
                     sound();
                 }
                 eggCounter++;
-                hunger -= 2;
+                hunger -= 7;
                 health -= 1;
                 if (eggCounter == 5)
                 {
                     updateEgg(true);
+                    sound();
                     eggCounter = 0;
                 }
             }
